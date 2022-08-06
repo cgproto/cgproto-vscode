@@ -1,0 +1,99 @@
+{
+  "name": "cgproto-vscode",
+  "displayName": "CGProto-VSCode",
+  "description": "CGProto remote coding on VSCode",
+  "version": "0.0.1",
+  "publisher": "cgproto",
+  "engines": {
+    "vscode": "^1.69.0"
+  },
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/cgproto/cgproto-vscode.git"
+  },
+  "icon": "icon.png",
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [
+    "onStartupFinished"
+  ],
+  "main": "./dist/extension.js",
+  "contributes": {
+    "configuration": {
+      "type": "object",
+      "title": "CGProto-VSCode configuration",
+      "properties": {
+        "cgproto-vscode.host": {
+          "type": "string",
+          "default": "192.168.0.100",
+          "description": "The ipv4 address of you iPhone/iPad."
+        },
+        "cgproto-vscode.port": {
+          "type": "integer",
+          "default": 3000,
+          "description": "The port number specfied in CGProto."
+        },
+        "cgproto-vscode.autoPush": {
+          "type": "boolean",
+          "default": true,
+          "description": "Whether to push the file that is being edited when saved."
+        }
+      }
+    },
+    "commands": [
+      {
+        "command": "cgproto-vscode.clone",
+        "title": "CGProto: Clone Project"
+      },
+      {
+        "command": "cgproto-vscode.push",
+        "title": "CGProto: Push Project"
+      },
+      {
+        "command": "cgproto-vscode.pull",
+        "title": "CGProto: Pull Project"
+      }
+    ],
+    "menus": {
+      "editor/title": [
+        {
+          "command": "cgproto-vscode.clone"
+        },
+        {
+          "command": "cgproto-vscode.push"
+        },
+        {
+          "command": "cgproto-vscode.pull"
+        }
+      ]
+    }
+  },
+  "scripts": {
+    "lint": "eslint .",
+    "pretest": "npm run lint",
+    "test": "node ./test/runTest.js",
+    "vscode:prepublish": "npm run package",
+    "vscode:package": "vsce package",
+    "webpack": "webpack --mode development",
+    "webpack-dev": "webpack --mode development --watch",
+    "package": "webpack --mode production --devtool hidden-source-map"
+  },
+  "devDependencies": {
+    "@types/glob": "^7.2.0",
+    "@types/mocha": "^9.1.1",
+    "@types/node": "16.x",
+    "@types/vscode": "^1.69.0",
+    "@vscode/test-electron": "^2.1.5",
+    "eslint": "^8.20.0",
+    "glob": "^8.0.3",
+    "mocha": "^10.0.0",
+    "typescript": "^4.7.4",
+    "webpack": "^5.74.0",
+    "webpack-cli": "^4.10.0"
+  },
+  "dependencies": {
+    "adm-zip": "^0.5.9"
+  }
+}
