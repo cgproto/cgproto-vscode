@@ -158,7 +158,8 @@ function activate(context) {
 			if (fs.existsSync(indexPath)) {
 				const componentID = path.basename(docFolderPath)
 				const fileName = path.basename(docPath)
-				const relativePath = path.join(componentID, fileName)
+				//const relativePath = path.join(componentID, fileName)
+				const relativePath = `${componentID}/${fileName}`
 				const index = JSON.parse(fs.readFileSync(indexPath))
 				if (index.files.includes(relativePath)) {
 					const buffer = fs.readFileSync(docPath)
