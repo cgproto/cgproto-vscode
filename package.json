@@ -1,8 +1,8 @@
 {
   "name": "cgproto-vscode",
-  "displayName": "CGProto-VSCode",
+  "displayName": "CGProto",
   "description": "CGProto remote coding on VSCode",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "publisher": "cgproto",
   "engines": {
     "vscode": "^1.69.0"
